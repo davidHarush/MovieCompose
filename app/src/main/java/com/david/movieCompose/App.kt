@@ -1,7 +1,7 @@
-package com.david.pokemon
+package com.david.movieCompose
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class PokeApp : Application()
+class App : Application()

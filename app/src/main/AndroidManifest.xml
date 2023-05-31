@@ -6,13 +6,13 @@
 
 
     <application
-        android:name=".PokeApp"
+        android:name="com.david.movieCompose.App"
         android:icon="@drawable/pikachu"
         android:label="@string/app_name"
         android:theme="@style/SplashScreenTheme"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.david.movieCompose.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -23,7 +23,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.myapp.fileprovider"
+            android:authorities="com.david.movieCompose.fileprovider"
             android:grantUriPermissions="true"
             android:requestLegacyExternalStorage="true"
             tools:replace="android:authorities">

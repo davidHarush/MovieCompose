@@ -1,4 +1,4 @@
-package com.david.pokemon
+package com.david.movieCompose
 
 import androidx.lifecycle.ViewModel
 

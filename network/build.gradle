@@ -3,8 +3,13 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlinx-serialization'
     id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'com.google.secrets_gradle_plugin' version '0.4'
 
 }
+def localPropertiesFile = rootProject.file("local.properties")
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(localPropertiesFile))
+
 
 android {
     namespace 'com.david.network'
@@ -16,6 +21,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "API_KEY", localProperties['apiKey']
+
     }
 
     buildTypes {

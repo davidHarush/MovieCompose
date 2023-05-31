@@ -1,4 +1,4 @@
-package com.david.pokemon.ui.theme
+package com.david.movieCompose.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

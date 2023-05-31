@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.david.pokemon'
+    namespace 'com.david.movieCompose'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.david.pokemon"
+        applicationId "com.david.movieCompose"
         minSdk 30
         targetSdk 33
         versionCode 1
