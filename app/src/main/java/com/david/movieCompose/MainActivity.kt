@@ -21,7 +21,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             PokemonTheme {
                 val systemUiController = rememberSystemUiController()
-                val navController = rememberNavController()
                 systemUiController.apply {
                     setStatusBarColor(color = DeepBlue, darkIcons = false)
                     setNavigationBarColor(color = DeepBlue, darkIcons = false)

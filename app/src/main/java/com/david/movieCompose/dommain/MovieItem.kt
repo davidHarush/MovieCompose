@@ -1,10 +1,5 @@
 package com.david.movieCompose.dommain
 
-//data class PokeCoreDataCharacter(
-//    val id: String,
-//    val name: String,
-//)
-//
 fun MovieItem.getImageUrl() =
     "https://image.tmdb.org/t/p/w500/$poster_path"
 

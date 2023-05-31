@@ -17,7 +17,6 @@ class MovieRepo @Inject constructor() {
 
     private fun convertMovieList(results: List<MovieItemNetwork>?): List<MovieItem> {
         return results?.map { movie ->
-            Log.i("dddddd", movie.toString())
             MovieItem(
                 backdrop_path = movie.backdrop_path,
                 id = movie.id,

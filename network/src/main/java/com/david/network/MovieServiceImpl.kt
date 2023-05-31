@@ -49,8 +49,6 @@ class MovieServiceImpl(
             handleException(e)
             null
         }
-
-
     }
 
 }

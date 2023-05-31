@@ -26,19 +26,18 @@ import com.david.movieCompose.dommain.MovieItem
 import com.david.movieCompose.dommain.getImageUrl
 import com.david.movieCompose.ui.theme.DeepBlue
 
-
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel = hiltViewModel(),
+    viewModel: MainViewModel = hiltViewModel()
 ) {
-    val pokeListState by viewModel.movieListState.collectAsState()
+    val movieListState by viewModel.movieListState.collectAsState()
 
     Box(
         modifier = Modifier
             .background(DeepBlue)
             .fillMaxSize()
     ) {
-        when (pokeListState) {
+        when (movieListState) {
             is UiState.Loading -> {
                 // Display a loading indicator
                 CircularProgressIndicator(
@@ -46,8 +45,8 @@ fun MainScreen(
                 )
             }
             is UiState.Success -> {
-                val movieList: ArrayList<MovieItem> =
-                    (pokeListState as UiState.Success<ArrayList<MovieItem>>).data
+                val movieList: List<MovieItem> =
+                    (movieListState as UiState.Success<List<MovieItem>>).data
                 // Display the list of movies
                 LazyColumn(
                     modifier = Modifier.fillMaxSize(),
@@ -61,9 +60,9 @@ fun MainScreen(
 
             is UiState.Error -> {
                 // Display an error message
-                val errorMessage = (pokeListState as UiState.Error)
+                val errorMessage = (movieListState as UiState.Error).exception.message
                 Text(
-                    text = errorMessage.exception.message!!,
+                    text = errorMessage ?: "An error occurred",
                     modifier = Modifier.align(Alignment.Center),
                     color = Color.Red
                 )
@@ -74,7 +73,7 @@ fun MainScreen(
 
 @Composable
 fun CharacterItem(
-    movieItem: MovieItem,
+    movieItem: MovieItem
 ) {
     Card(
         shape = RoundedCornerShape(10.dp),
@@ -99,19 +98,16 @@ fun CharacterItem(
                     text = movieItem.title,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black,
                     modifier = Modifier.padding(bottom = 4.dp)
                 )
                 Text(
                     text = movieItem.release_date,
                     fontSize = 18.sp,
-                    color = Color.Gray,
                     modifier = Modifier.padding(bottom = 4.dp)
                 )
                 Text(
                     text = movieItem.overview.take(200),
                     fontSize = 14.sp,
-                    color = Color.Black
                 )
             }
         }
@@ -128,5 +124,4 @@ fun MovieImage(movieItem: MovieItem, modifier: Modifier = Modifier) {
             .background(Color.LightGray),
         contentScale = ContentScale.Crop
     )
-
 }
