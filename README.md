@@ -9,7 +9,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/languages/top/davidHarush/MovieCompose.svg" alt="GitHub top language">
-  <img src="https://img.shields.io/badge/API-30%2B-brightgreen.svg?style=flat" alt="API level">
+  <img src="https://img.shields.io/badge/API-31%2B-brightgreen.svg?style=flat" alt="API level">
+  <a href="https://www.codefactor.io/repository/github/davidharush/moviecompose"><img src="https://www.codefactor.io/repository/github/davidharush/moviecompose/badge" alt="CodeFactor" /></a> 
+<img src="https://img.shields.io/github/repo-size/davidHarush/MovieCompose" alt="GitHub repo size">
+<img src="https://img.shields.io/github/issues/davidHarush/MovieCompose" alt="GitHub issues">
 </p>
 
 </br>
@@ -42,6 +45,7 @@ for networking with the TMDB API
 
 ## Screenshots
 <!-- Add screenshots of your app in action -->
-Coming soon...
 
-</br>
+<img src="/art/screen_image.jpeg"   width="15%" style="margin-right: 50px;"/>
+
+
