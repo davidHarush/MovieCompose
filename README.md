@@ -32,7 +32,7 @@ This project serves as a learning resource and can be used as a starting point f
 </br>
 
 ## Tech Stack
-- Minimum SDK level 30
+- Minimum SDK level 31
 - [Kotlin](https://kotlinlang.org/) based, utilizing [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous programming.
 - Jetpack Compose for building the UI.
 - MVVM (Model-View-ViewModel) architecture.
