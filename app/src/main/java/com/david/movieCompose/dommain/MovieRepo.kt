@@ -1,6 +1,5 @@
 package com.david.movieCompose.dommain
 
-import android.util.Log
 import com.david.network.IMovieService
 import javax.inject.Inject
 import com.david.network.dto.MovieItem as MovieItemNetwork

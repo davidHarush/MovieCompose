@@ -1,17 +1,15 @@
 package com.david.movieCompose.ui.screens.main
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,17 +22,21 @@ import coil.compose.rememberAsyncImagePainter
 import com.david.movieCompose.UiState
 import com.david.movieCompose.dommain.MovieItem
 import com.david.movieCompose.dommain.getImageUrl
-import com.david.movieCompose.ui.theme.DeepBlue
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel = hiltViewModel()
+    viewModel: MainViewModel = hiltViewModel(),
+    coroutineScope: CoroutineScope = rememberCoroutineScope()
+
 ) {
     val movieListState by viewModel.movieListState.collectAsState()
 
     Box(
         modifier = Modifier
-            .background(DeepBlue)
+            .background(MaterialTheme.colorScheme.surface)
             .fillMaxSize()
     ) {
         when (movieListState) {
@@ -53,7 +55,7 @@ fun MainScreen(
                     contentPadding = PaddingValues(16.dp)
                 ) {
                     items(movieList) { movie ->
-                        CharacterItem(movieItem = movie)
+                        CharacterItem(movieItem = movie, coroutineScope = coroutineScope)
                     }
                 }
             }
@@ -71,18 +73,38 @@ fun MainScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterItem(
-    movieItem: MovieItem
+    movieItem: MovieItem,
+    coroutineScope: CoroutineScope
 ) {
+    var isSelected by remember { mutableStateOf(false) }
+
+    val cardColor by animateColorAsState(
+        targetValue = if (isSelected) MaterialTheme.colorScheme.primaryContainer
+        else MaterialTheme.colorScheme.surfaceVariant,
+        animationSpec = tween(durationMillis = 200)
+    )
+
+
     Card(
+        colors = CardDefaults.cardColors(
+            containerColor = cardColor
+        ),
         shape = RoundedCornerShape(10.dp),
-        elevation = 4.dp,
+        elevation = CardDefaults.cardElevation(),
         modifier = Modifier
-            .background(DeepBlue)
             .fillMaxWidth()
             .height(300.dp)
-            .padding(8.dp)
+            .padding(8.dp),
+        onClick = {
+            isSelected = !isSelected
+            coroutineScope.launch {
+                delay(200)
+                isSelected = false
+            }
+        }
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -98,16 +120,22 @@ fun CharacterItem(
                     text = movieItem.title,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 4.dp)
+                    modifier = Modifier.padding(bottom = 4.dp),
+                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer
+                    else MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = movieItem.release_date,
                     fontSize = 18.sp,
-                    modifier = Modifier.padding(bottom = 4.dp)
+                    modifier = Modifier.padding(bottom = 4.dp),
+                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer
+                    else MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = movieItem.overview.take(200),
                     fontSize = 14.sp,
+                    color = if (isSelected) MaterialTheme.colorScheme.onPrimaryContainer
+                    else MaterialTheme.colorScheme.onSurface,
                 )
             }
         }
@@ -120,8 +148,7 @@ fun MovieImage(movieItem: MovieItem, modifier: Modifier = Modifier) {
         painter = rememberAsyncImagePainter(movieItem.getImageUrl()),
         contentDescription = null,
         modifier = modifier
-            .fillMaxSize()
-            .background(Color.LightGray),
+            .fillMaxSize(),
         contentScale = ContentScale.Crop
     )
 }

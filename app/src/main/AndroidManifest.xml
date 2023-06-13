@@ -9,8 +9,7 @@
         android:name="com.david.movieCompose.App"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/SplashScreenTheme"
-        tools:targetApi="31">
+        android:theme="@style/SplashScreenTheme">
         <activity
             android:name="com.david.movieCompose.MainActivity"
             android:exported="true"

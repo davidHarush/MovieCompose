@@ -3,11 +3,10 @@ package com.david.movieCompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material3.MaterialTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.compose.rememberNavController
 import com.david.movieCompose.ui.screens.main.MainScreen
-import com.david.movieCompose.ui.theme.DeepBlue
-import com.david.movieCompose.ui.theme.PokemonTheme
+import com.david.movieCompose.ui.theme.AppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,11 +18,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContent {
-            PokemonTheme {
+            AppTheme {
                 val systemUiController = rememberSystemUiController()
                 systemUiController.apply {
-                    setStatusBarColor(color = DeepBlue, darkIcons = false)
-                    setNavigationBarColor(color = DeepBlue, darkIcons = false)
+                    setStatusBarColor(color = MaterialTheme.colorScheme.surface)
+                    setNavigationBarColor(color = MaterialTheme.colorScheme.surface)
                 }
                 MainScreen()
             }
