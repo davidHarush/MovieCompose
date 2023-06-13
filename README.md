@@ -32,7 +32,7 @@ This project serves as a learning resource and can be used as a starting point f
 </br>
 
 ## Tech Stack
-- Minimum SDK level 31
+- Minimum SDK level 32
 - [Kotlin](https://kotlinlang.org/) based, utilizing [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous programming.
 - Jetpack Compose for building the UI.
 - MVVM (Model-View-ViewModel) architecture.
@@ -40,6 +40,26 @@ This project serves as a learning resource and can be used as a starting point f
 for networking with the TMDB API
 - [Hilt](https://dagger.dev/hilt/) for dependency injection.
 - [Kotlin Serializable](https://kotlinlang.org/docs/serialization.html) for object serialization.
+
+#### Network 
+
+All the network calls from sepred modle using Ktor with Kotlin serializable.
+</br>
+Ktor: KMM framework that allow to write asynchronous clients and servers applications, in Kotlin without android dependency.
+</br>
+For more info [Ktor](https://ktor.io/), [Kotlin serializable](https://kotlinlang.org/docs/serialization.html)
+
+#### Material Design 3
+
+Material Design 3 is the latest version of Google's design language, providing updated guidelines and components for creating modern and visually appealing user interfaces.
+In this project, I have adapted to Material Design 3 and used dynamicColorScheme based off the system wallpaper.
+
+- [Material Design Documentation](https://material.io/design)
+- [Material Components for Android](https://github.com/material-components/material-components-android)
+
+
+
+
 
 </br>
 
