@@ -46,12 +46,8 @@ for networking with the TMDB API
 ## Screenshots
 
 <p align="center">
-  <img src="/art/screenshot1.jpeg" width="20%" alt="Screenshot 1" />
-  <img src="/art/screenshot2.jpeg" width="20%" alt="Screenshot 2" />
-  <img src="/art/screenshot3.jpeg" width="20%" alt="Screenshot 3" />
-</p>
-
-<p align="center">
-  <img src="/art/screenshot4.jpeg" width="20%" alt="Screenshot 4" />
-  <img src="/art/screenshot5.jpeg" width="20%" alt="Screenshot 5" />
+  <img src="/art/screenshot1.jpeg" width="15%" alt="Screenshot 1" />
+  <img src="/art/screenshot2.jpeg" width="15%" alt="Screenshot 2" />
+  <img src="/art/screenshot4.jpeg" width="15%" alt="Screenshot 4" />
+  <img src="/art/screenshot3.jpeg" width="15%" alt="Screenshot 3" />
 </p>
