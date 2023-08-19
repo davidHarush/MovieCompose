@@ -71,3 +71,10 @@ In this project, I have adapted to Material Design 3 and used dynamicColorScheme
   <img src="/art/screenshot4.jpeg" width="15%" alt="Screenshot 4" />
   <img src="/art/screenshot3.jpeg" width="15%" alt="Screenshot 3" />
 </p>
+
+## Diagram 
+
+<p align="center">
+  <img src="/art/Screenshot 2023-08-19 at 14.07.18.png" alt="Screenshot 1" />
+</p>
+
